@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-clock',
   templateUrl: './clock.component.html',
@@ -8,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClockComponent implements OnInit {
   constructor() {}
-
- 
 
   getTimeNow(): string {
     var timeStamp = new Date();
@@ -22,6 +19,7 @@ export class ClockComponent implements OnInit {
 
   intervalId: number = 0;
   time: Date = new Date();
+  darkMode:boolean = false;
 
   get timeNow(): Date {
     return this.time;
@@ -38,6 +36,11 @@ export class ClockComponent implements OnInit {
     } else {
       return 'autumn';
     }
+  }
+  toggleDarkMode(): void{
+    this.darkMode = !this.darkMode
+    console.log('toggled');
+    
   }
 
   ngOnInit(): void {

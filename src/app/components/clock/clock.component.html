@@ -1,7 +1,4 @@
-
-<section>
-    <p>{{timeNow | date:'mediumTime'}}</p>
-    <div class = "season-image" [class] = "getSeasonNow" ></div>
+<section (click)="toggleDarkMode()" [ngClass]="{ dark: darkMode }">
+  <p>{{ timeNow | date: "mediumTime" }}</p>
+  <div class="season-image" [class]="getSeasonNow"></div>
 </section>
-
-
