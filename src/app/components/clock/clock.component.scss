@@ -1,0 +1,32 @@
+:host{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.season-image {
+    width: 120px;
+    height: 150px;
+    margin: 0 auto;
+    // background: url('./seasons.png') 375px 0;
+
+}
+
+.summer {
+    background: url('../../../assets/images/seasons.png') 250px 0;
+}
+
+.winter {
+    background: url('../../../assets/images/seasons.png') 0px 0;
+}
+
+.autumn {
+    background: url('../../../assets/images/seasons.png') 125px 0;
+}
+
+.spring {
+    background: url('../../../assets/images/seasons.png') 375px 0;
+
+}
