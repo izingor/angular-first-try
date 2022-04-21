@@ -1,6 +1,9 @@
+<section class="who-watch-container">
+  <p>who watch</p>
 
-<section>
-    <p>who-watch works!</p>
-    
+  <app-user-preview
+    *ngFor="let user of users; index as userIdx"
+    [user]="user"
+    (removeShow)="removeShow($event, userIdx)"
+  ></app-user-preview>
 </section>
-    

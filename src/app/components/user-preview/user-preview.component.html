@@ -1,1 +1,11 @@
-<p>user-preview works!</p>
+<div  *ngIf="user" class = "user-preview">
+
+    <h3>{{user?.name}}</h3>
+    <!-- <p>{{user | json}}</p> -->
+    <div *ngFor="let show of user?.shows; index as showIdx">
+        <p>{{show}}</p>
+        <button (click)="onRemoveShow(showIdx)">x</button>
+    </div>
+
+
+</div>
