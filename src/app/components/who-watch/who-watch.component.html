@@ -1,10 +1,6 @@
 <section class="who-watch-container">
-  <app-user-preview
-    *ngFor="let user of users; index as userIdx"
-    [user]="user"
-    (removeShow)="removeShow($event, userIdx)"
-    (removeUser)="removeUser($event)"
-  ></app-user-preview>
+  <app-user-preview *ngFor="let user of users; index as userIdx" [user]="user"
+    (removeShow)="removeShow($event, userIdx)" (removeUser)="removeUser($event)"></app-user-preview>
   <section class="create-user">
     <form (submit)="createUser($event)">
       <p>User name</p>

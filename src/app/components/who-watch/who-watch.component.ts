@@ -53,8 +53,24 @@ export class WhoWatchComponent implements OnInit {
 
   createUser(ev: any): void {
     ev.preventDefault();
-    // console.log(ev);
-    console.log(ev);
+    
+    const selectedOptions = ev.target[1].selectedOptions;
+    const addedShows: string[] = [];
+    console.log(selectedOptions);
+    
+    for (let show of selectedOptions) {
+      addedShows.push(show.value)
+    }
+    const newUser: User = {
+      id: Date.now() % 10000,
+      name: ev.target[0].value,
+      shows: addedShows,
+    };
+    this.users.unshift(newUser)
+  }
+
+  trackByFn(idx: number, show: string) {
+    return show + idx;
   }
   mouseMove: any;
 
