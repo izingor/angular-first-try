@@ -9,7 +9,15 @@
     <form (submit)="createUser($event)">
       <p>User name</p>
       <input type="text"/>
-        p
+      <select name="shows" id="favorite-shows" multiple="multiple">
+        <option *ngFor="let show of favoriteShows; index as idx; trackBy: trackByFn" [value]="show">{{show}}</option>
+      </select>
+      <!-- <div *ngFor="let show of favoriteShows">
+        <label  for="show">{{show}}</label>
+          <input id="show" type="checkbox" [value]="show">
+      </div> -->
+
+
       <button>Add user</button>
     </form>
   </section>
