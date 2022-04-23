@@ -9,10 +9,16 @@ import { User } from 'src/app/models/user-model';
 export class UserPreviewComponent implements OnInit {
   @Input() user?: User;
   @Output() removeShow = new EventEmitter<number>();
+  @Output() removeUser = new EventEmitter<number>();
 
   onRemoveShow(showIdx: number): void {
     this.removeShow.emit(showIdx);
-    // console.log('user id', userId, 'show' , showIdx);
+  }
+
+  onRemoveUser(userId:number): void{
+    this.removeUser.emit(userId);
+    // console.log(userId);
+    
   }
 
   constructor() {}
