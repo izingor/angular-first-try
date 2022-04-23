@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user-model';
+import { fromEvent, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-who-watch',
@@ -15,6 +16,9 @@ export class WhoWatchComponent implements OnInit {
     'Better Call Saul',
     'The office',
   ];
+
+  x: number = 0;
+  y: number = 0;
 
   users: User[] = [
     {
@@ -52,6 +56,17 @@ export class WhoWatchComponent implements OnInit {
     // console.log(ev);
     console.log(ev);
   }
+  mouseMove: any;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // fromEvent(document, 'click').subscribe(event => console.log(event))
+    this.mouseMove = fromEvent(document, 'mousemove');
+    this.mouseMove.subscribe((ev: any): void => {
+      this.y = ev.clientY;
+      this.x = ev.clientX;
+    });
+  }
+  ngOnDestroy(): void {
+    this.mouseMove.unsubscribe(() => console.log('unsubscribed'));
+  }
 }
