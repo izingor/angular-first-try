@@ -1,22 +1,13 @@
 <section class="who-watch-container">
-  <app-user-preview
-    *ngFor="let user of users; index as userIdx"
-    [user]="user"
-    (removeShow)="removeShow($event, userIdx)"
-    (removeUser)="removeUser($event)"
-  ></app-user-preview>
+  <app-user-preview *ngFor="let user of users; index as userIdx" [user]="user"
+    (removeShow)="removeShow($event, userIdx)" (removeUser)="removeUser($event)"></app-user-preview>
   <section class="create-user">
     <form (submit)="createUser($event)">
       <p>User name</p>
-      <input type="text"/>
+      <input type="text" placeholder="User name" />
       <select name="shows" id="favorite-shows" multiple="multiple">
         <option *ngFor="let show of favoriteShows; index as idx; trackBy: trackByFn" [value]="show">{{show}}</option>
       </select>
-      <!-- <div *ngFor="let show of favoriteShows">
-        <label  for="show">{{show}}</label>
-          <input id="show" type="checkbox" [value]="show">
-      </div> -->
-
 
       <button>Add user</button>
     </form>
